@@ -1,0 +1,86 @@
+{% extends "plantilla.html" %}
+
+
+{% block head %}
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+{% endblock %}
+
+
+{% block banner %}
+<div class="mini-menu">
+    <div class="accesos-banner">
+        <b>
+            <span>Admitidos |</span>
+            <span>Estudiantes |</span>
+            <span>Docentes |</span>
+            <span>Administrativos |</span>
+            <span>SAPIENS</span>
+        </b>
+    </div>
+    <div class="social-media">
+        <a href=""><i class="fab fa-facebook w-30px m-t-5 mr-2"></i></a>
+        <a href=""><i class="fab fa-instagram w-30px m-t-5 mr-2"></i></a>
+        <a href=""><i class="fab fa-twitter-square w-30px m-t-5 mr-2"></i></a>
+        <a href=""><i class="far fa-envelope w-30px m-t-5 mr-2"> Correo Institucional</i></a>
+    </div>
+</div>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+    <div class="image-banner">
+        <img src="https://eventos.unad.edu.co/images/2021/julio/5to-encuentro-Banner.jpg" alt="">
+    </div>
+</section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>Inscripciones abiertas: Maestría en Estadística Aplicada</h3>
+              <p>
+                Facultad de Ciencias Exactas y Naturales a través del Departamento de Matemáticas y Estadística y el Centro de Estudios y Asesoría en Estadística CEASE de la Universidad de Nariño.
+              </p>
+              <div class="text-center">
+                <a href="#" class="more-btn">Leer más <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-receipt"></i>
+                    <h4>La Universidad de Nariño hizo parte de “La Noche de los Mejores”</h4>
+                    <p>La distinción “Luis López de Mesa” fue entregada a la Señora Rectora, Martha Sofía González Insuasti en representación de la Universidad de Nariño.</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-cube-alt"></i>
+                    <h4>Homenaje Póstumo Familia Udenar</h4>
+                    <p>Su recuerdo será una luz en nuestras vidas.</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-images"></i>
+                    <h4>Posesión de la Directora del Departamento de Contratación la Universidad de Nariño</h4>
+                    <p>Doctora Norma Fernanda Ordoñez Eraso; designada mediante la Resolución Rectoral No. 2052 de 07 del día 25 de noviembre de 2022.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+{% endblock %}

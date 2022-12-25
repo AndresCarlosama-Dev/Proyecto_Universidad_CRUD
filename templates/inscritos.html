@@ -1,0 +1,72 @@
+{% extends "plantilla.html" %}
+
+{% block head %}
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='inscritos.css') }}">
+{% endblock %}
+
+{% block contenido%}
+
+{% if modelo.error %}
+<div class="alert alert-gradient shadow" role="alert">
+    <h6>{{ modelo.error}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button></h6>
+</div>
+{% endif %}
+
+{% if modelo.exito %}
+<div class="alert alert-gradient-success shadow" role="alert">
+    <h6>{{ modelo.exito}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button></h6>
+</div>
+{% endif %}
+
+
+
+
+<div class="row d-flex justify-content-center mt-100 mb-100">
+
+    <div class="col-lg-8">
+
+        <div class="card">
+            <div class="card-body text-center">
+                <h3 class="card-title m-b-0">Lista de estudiantes inscritos</h3>
+                <hr>
+            </div>
+
+            <ul class="list-style-none">
+
+                {% for estudiante in modelo.estudiantes %}
+                <div class="registro-estudiante">
+                    <div class="estudientes-datos">
+                        <li class="d-flex no-block card-body">
+                            <i class="fas fa-user w-30px m-t-5 mr-2"></i>
+                            <div class="txt-center">
+
+
+                                <p class="m-b-0 font-medium p-0" data-abc="true">({{ estudiante.0 }}) {{ estudiante.1 }}
+                                    {{
+                                    estudiante.2 }}</p>
+                                <span class="text-muted"><b>Correo:</b> {{ estudiante.3 }} |</span>
+                                <span class="text-muted"><b>Teléfono:</b> {{ estudiante.4 }}</span>
+                        </li>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="btn btn-light" href="/admin/estudiantes/editar/{{ estudiante.0 }}">Actualizar</a></li>
+                                <li><a class="btn btn-danger" href="/admin/estudiantes/eliminar/{{ estudiante.0 }}">Eliminar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

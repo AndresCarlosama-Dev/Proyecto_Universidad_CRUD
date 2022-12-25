@@ -1,0 +1,115 @@
+{% extends "plantilla.html" %}
+
+{% block head %}
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='matriculas.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+{% endblock %}
+
+
+{% block contenido%}
+
+<div class="registration-form">
+    <form class="row gy-2 gx-3 align-items-center" action="/admin/matriculas/buscar" method="post">
+        <label class="form-label" for="form11Example1">Código</label>
+        <div class="col-auto">
+            <div class="form-outline">
+                <input type="text" id="form11Example1" class="form-control" name="codigo" />
+            </div>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Consultar</button>
+        </div>
+    </form>
+</div>
+
+
+{% if modelo and modelo.estudiante %}
+<!-- CARD -->
+<div class="card ">
+    <div class="form-icon">
+        <span><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt=""></i></span>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">{{modelo.estudiante.1}} {{modelo.estudiante.2}} </h4>
+        <p class="card-text">{{modelo.estudiante.0}} | {{modelo.estudiante.3}} | {{modelo.estudiante.4}} </p>
+    </div>
+</div>
+
+<!-- TABLE -->
+<section class="intro">
+    <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="card shadow-2-strong">
+                        <div class="card-body">
+                            <table class="table table-borderless mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">MATERIA</th>
+                                        <th scope="col">CREDITOS</th>
+                                        <th scope="col">OPCIONES</th>
+                                    </tr>
+                                </thead>
+                                {% if modelo.materias_matriculadas %}
+                                {% for materia in modelo.materias_matriculadas %}
+                                    <tbody>
+                                        <td>{{materia.1}}</td>
+                                        <td>{{materia.2}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger btn-sm px-3">
+                                                <a href="/admin/matriculas/eliminar/{{modelo.estudiante.0}}/{{materia.0}}"><i class="fas fa-times"></i></a>
+                                            </button>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                {% endfor %}
+                                {% else %}
+                                <tbody>
+                                    <td>Usted no tiene materias matriculadas</td>
+                                </tbody>
+                                {% endif %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if modelo.error %}
+<div class="alert alert-gradient shadow" role="alert">
+    <h6>{{ modelo.error}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button></h6>
+</div>
+{% endif %}
+
+{% if modelo.exito %}
+<div class="alert alert-gradient-success shadow" role="alert">
+    <h6>{{ modelo.exito}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button></h6>
+</div>
+{% endif %}
+
+<div class="container-matricula">
+    <h4>Matricular materias</h4>
+    <form method="post" action="/admin/matriculas/agregar">
+        <input type="hidden" value="{{ modelo.estudiante.0 }}" name="codigo">
+        <div class="container">
+            <select id="inputState" class="form-control" name="materia">
+                {% for materia in modelo.materias %}
+                    <option value="{{materia.0}}">{{materia.1}} ({{materia.2}})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Matricular</button>
+        </div>
+    </form>
+</div>
+
+{% endif %}
+
+{% endblock %}

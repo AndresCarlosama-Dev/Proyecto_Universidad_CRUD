@@ -1,0 +1,113 @@
+body{
+   background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+}
+.mt-100{ 
+   margin-top:100px;
+}
+.mb-100{
+   margin-bottom:100px;
+}
+.card {
+   position: relative;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   min-width: 0;
+   word-wrap: break-word;
+   background-color: #fff;
+   background-clip: border-box;
+   border: 0px solid transparent;
+   border-radius: 0px;
+   border-radius: 30px;
+}
+
+.card-body {
+   -webkit-box-flex: 1;
+   -ms-flex: 1 1 auto;
+   flex: 1 1 auto;
+   padding: 1.25rem;
+}
+
+.card-body h3{
+   padding: 1rem 0 2rem 0;
+}
+
+.card .card-title {
+   position: relative;
+   font-weight: 600;
+   margin-bottom: 10px;
+}
+
+ul.list-style-none li {
+   list-style: none;
+}
+
+ul.list-style-none li a {
+   color: #673AB7;
+   padding: 8px 0px;
+   display: block;
+   text-decoration: none;
+}
+
+.m-t-5 {
+   margin-top: 5px;
+}
+
+.w-30px {
+   width: 30px;
+}
+
+.txt-center{
+    text-align: left;
+}
+
+p{
+   margin-bottom: 3px;
+}
+
+a{
+   white-space: nowrap;
+}
+
+/* ========================================== */
+
+.alert-gradient{
+   background: linear-gradient(to top right, #e66465, #9198e5);
+   border-radius:0px;
+   border:none;
+   color:#fff;
+}
+
+.alert-gradient-success{
+   background: linear-gradient(to top right, #85FFBD, #FFFB7D);
+   border-radius:0px;
+   border:none;
+   color:#fff;
+}
+
+.alert-gradient-success h6{
+   color:#000;
+}
+
+.alert-heading-gradient{
+   color:#fff;
+   font-weight:600;
+}
+h3{
+   color: #0062cc;
+}
+.registro-estudiante{
+   display: flex;
+   justify-content: space-between;
+}
+
+.registro-estudiante .btn-group{
+   height: 4vh;
+   margin-top: 1.5vh;
+   padding-right: 2vh;
+}
+

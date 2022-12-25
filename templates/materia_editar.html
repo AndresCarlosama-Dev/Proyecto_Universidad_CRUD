@@ -1,0 +1,51 @@
+{% extends "plantilla.html" %}
+
+{% block head %}
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='materia_editar.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+{% endblock %}
+
+{% block contenido%}
+
+{% if modelo.error %}
+<div class="alert alert-gradient shadow" role="alert">
+    <h6>{{ modelo.error}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button></h6>
+</div>
+{% endif %}
+
+{% if modelo.exito %}
+<div class="alert alert-gradient-success shadow" role="alert">
+    <h6>{{ modelo.exito}} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button></h6>
+</div>
+{% endif %}
+
+<div class="registration-form">
+    <form action="/admin/materias/actualizar" method="post">
+        <div class="form-icon">
+            <span><i class="far fa-folder-open"></i></span>
+        </div>
+        <div class="form-group">
+            <input value="{{ modelo.materias.0 }}" type="text" class="form-control item" id="username" readonly name="id">
+        </div>
+        <div class="form-group">
+            <input value="{{ modelo.materias.1 }}" type="text" class="form-control item" id="password" name="nombre">
+        </div>
+        <div class="form-group">
+            <input value="{{ modelo.materias.2 }}" type="text" class="form-control item" id="email" name="creditos">
+        </div>
+        
+        <div class="form-group">
+            <button type="submit" class="btn btn-block create-account">Actualizar materia</button>
+        </div>
+    </form>
+    <div class="social-media">
+        <h4>Actualización de Materias Académicas</h4>
+        <h6>Universidad de Nariño</h6>
+
+    </div>
+</div>
+
+{% endblock%}
