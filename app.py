@@ -12,6 +12,8 @@ app.config['MYSQL_DB'] = 'udenar'
 app.config['MYSQL_PORT'] = 3306
 mysql = MySQL(app)
 
+#Connection to database render app
+# postgres://udenardb_user:j7UbzzUdlteuRWsjdp9arCrtjFrgUsSr@dpg-cg17kag2qv25u2g54ukg-a.oregon-postgres.render.com/udenardb
 
 @app.route('/')
 def index():
