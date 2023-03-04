@@ -5,12 +5,21 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 
 #CONEXION A LA BASE DE DATOS
-app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = 'admin'
+# app.config['MYSQL_DB'] = 'udenar'
+# app.config['MYSQL_PORT'] = 3306
+# mysql = MySQL(app)
+
+#CONEXION A LA BASE DE DATOS
+app.config['MYSQL_HOST'] = 'containers-us-west-167.railway.app'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'admin'
-app.config['MYSQL_DB'] = 'udenar'
-app.config['MYSQL_PORT'] = 3306
+app.config['MYSQL_PASSWORD'] = 'SiOqW9tgq7H98Xdz0mSW'
+app.config['MYSQL_DB'] = 'railway'
+app.config['MYSQL_PORT'] = 6904
 mysql = MySQL(app)
+
 
 #Connection to database render app
 # postgres://udenardb_user:j7UbzzUdlteuRWsjdp9arCrtjFrgUsSr@dpg-cg17kag2qv25u2g54ukg-a.oregon-postgres.render.com/udenardb
